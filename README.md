@@ -17,3 +17,21 @@ Application was developed to create connections to databases through a login. Th
 - A well-made and interactive app interface.
 - To learn about the connection between databases and different technologies.
   
+## Cloning the Repository
+To clone the DB_Console repository, you can use the following command:
+
+```bash
+git clone https://github.com/Bb3t0-V4zf1g/DB_Console.git
+```
+
+This command will create a local copy of the repository on your machine. After cloning, navigate into the repository directory using:
+
+```bash
+cd DB_Console
+```
+
+To verify that you are connected to the remote repository, you can use the following command:
+
+```
+git remote -v
+```
