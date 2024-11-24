@@ -29,91 +29,169 @@
         private void InitializeComponent()
         {
             this.lblBienvenido = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
+            this.TxtServidor = new System.Windows.Forms.TextBox();
+            this.BtnLogin = new System.Windows.Forms.Button();
+            this.BtnCancelar = new System.Windows.Forms.Button();
+            this.LblServidor = new System.Windows.Forms.Label();
+            this.LblPuerto = new System.Windows.Forms.Label();
+            this.LblUsuario = new System.Windows.Forms.Label();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.LblBD = new System.Windows.Forms.Label();
+            this.LblPassword = new System.Windows.Forms.Label();
+            this.TxtPuerto = new System.Windows.Forms.TextBox();
+            this.TxtUsuario = new System.Windows.Forms.TextBox();
+            this.TxtBD = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblBienvenido
             // 
             this.lblBienvenido.AutoSize = true;
             this.lblBienvenido.Font = new System.Drawing.Font("Mongolian Baiti", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenido.Location = new System.Drawing.Point(220, 49);
+            this.lblBienvenido.Location = new System.Drawing.Point(163, 9);
+            this.lblBienvenido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(241, 50);
+            this.lblBienvenido.Size = new System.Drawing.Size(193, 40);
             this.lblBienvenido.TabIndex = 0;
             this.lblBienvenido.Text = "Bienvenido";
             // 
-            // textBox1
+            // TxtServidor
             // 
-            this.textBox1.Location = new System.Drawing.Point(276, 137);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TxtServidor.Location = new System.Drawing.Point(207, 61);
+            this.TxtServidor.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtServidor.Name = "TxtServidor";
+            this.TxtServidor.Size = new System.Drawing.Size(149, 20);
+            this.TxtServidor.TabIndex = 1;
+            this.TxtServidor.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // BtnLogin
             // 
-            this.textBox2.Location = new System.Drawing.Point(276, 184);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 22);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.BtnLogin.Location = new System.Drawing.Point(144, 254);
+            this.BtnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(82, 27);
+            this.BtnLogin.TabIndex = 3;
+            this.BtnLogin.Text = "Conectar";
+            this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // btnOk
+            // BtnCancelar
             // 
-            this.btnOk.Location = new System.Drawing.Point(195, 273);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(109, 33);
-            this.btnOk.TabIndex = 3;
-            this.btnOk.Text = "Iniciar Sesión";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.BtnCancelar.Location = new System.Drawing.Point(281, 254);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(56, 27);
+            this.BtnCancelar.TabIndex = 4;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // btnCancel
+            // LblServidor
             // 
-            this.btnCancel.Location = new System.Drawing.Point(377, 273);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 33);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.LblServidor.AutoSize = true;
+            this.LblServidor.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblServidor.Location = new System.Drawing.Point(118, 61);
+            this.LblServidor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblServidor.Name = "LblServidor";
+            this.LblServidor.Size = new System.Drawing.Size(65, 16);
+            this.LblServidor.TabIndex = 5;
+            this.LblServidor.Text = "Servidor:";
             // 
-            // lblUser
+            // LblPuerto
             // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(196, 136);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(54, 21);
-            this.lblUser.TabIndex = 5;
-            this.lblUser.Text = "User:";
+            this.LblPuerto.AutoSize = true;
+            this.LblPuerto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPuerto.Location = new System.Drawing.Point(118, 105);
+            this.LblPuerto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblPuerto.Name = "LblPuerto";
+            this.LblPuerto.Size = new System.Drawing.Size(52, 16);
+            this.LblPuerto.TabIndex = 6;
+            this.LblPuerto.Text = "Puerto:";
             // 
-            // lblPassword
+            // LblUsuario
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(157, 184);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(93, 21);
-            this.lblPassword.TabIndex = 6;
-            this.lblPassword.Text = "Password:";
+            this.LblUsuario.AutoSize = true;
+            this.LblUsuario.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUsuario.Location = new System.Drawing.Point(118, 139);
+            this.LblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblUsuario.Name = "LblUsuario";
+            this.LblUsuario.Size = new System.Drawing.Size(61, 16);
+            this.LblUsuario.TabIndex = 7;
+            this.LblUsuario.Text = "Usuario:";
+            // 
+            // TxtPassword
+            // 
+            this.TxtPassword.Location = new System.Drawing.Point(207, 176);
+            this.TxtPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(149, 20);
+            this.TxtPassword.TabIndex = 8;
+            this.TxtPassword.UseSystemPasswordChar = true;
+            // 
+            // LblBD
+            // 
+            this.LblBD.AutoSize = true;
+            this.LblBD.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblBD.Location = new System.Drawing.Point(73, 218);
+            this.LblBD.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblBD.Name = "LblBD";
+            this.LblBD.Size = new System.Drawing.Size(110, 16);
+            this.LblBD.TabIndex = 9;
+            this.LblBD.Text = "Basde de Datos:";
+            // 
+            // LblPassword
+            // 
+            this.LblPassword.AutoSize = true;
+            this.LblPassword.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPassword.Location = new System.Drawing.Point(101, 180);
+            this.LblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblPassword.Name = "LblPassword";
+            this.LblPassword.Size = new System.Drawing.Size(82, 16);
+            this.LblPassword.TabIndex = 12;
+            this.LblPassword.Text = "Contraseña:";
+            // 
+            // TxtPuerto
+            // 
+            this.TxtPuerto.Location = new System.Drawing.Point(207, 101);
+            this.TxtPuerto.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPuerto.Name = "TxtPuerto";
+            this.TxtPuerto.Size = new System.Drawing.Size(149, 20);
+            this.TxtPuerto.TabIndex = 13;
+            // 
+            // TxtUsuario
+            // 
+            this.TxtUsuario.Location = new System.Drawing.Point(207, 135);
+            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtUsuario.Name = "TxtUsuario";
+            this.TxtUsuario.Size = new System.Drawing.Size(149, 20);
+            this.TxtUsuario.TabIndex = 14;
+            // 
+            // TxtBD
+            // 
+            this.TxtBD.Location = new System.Drawing.Point(207, 214);
+            this.TxtBD.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtBD.Name = "TxtBD";
+            this.TxtBD.Size = new System.Drawing.Size(149, 20);
+            this.TxtBD.TabIndex = 15;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 360);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(502, 292);
+            this.Controls.Add(this.TxtBD);
+            this.Controls.Add(this.TxtUsuario);
+            this.Controls.Add(this.TxtPuerto);
+            this.Controls.Add(this.LblPassword);
+            this.Controls.Add(this.LblBD);
+            this.Controls.Add(this.TxtPassword);
+            this.Controls.Add(this.LblUsuario);
+            this.Controls.Add(this.LblPuerto);
+            this.Controls.Add(this.LblServidor);
+            this.Controls.Add(this.BtnCancelar);
+            this.Controls.Add(this.BtnLogin);
+            this.Controls.Add(this.TxtServidor);
             this.Controls.Add(this.lblBienvenido);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -125,12 +203,18 @@
         #endregion
 
         private System.Windows.Forms.Label lblBienvenido;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btnOk;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox TxtServidor;
+        private System.Windows.Forms.Button BtnLogin;
+        private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.Label LblServidor;
+        private System.Windows.Forms.Label LblPuerto;
+        private System.Windows.Forms.Label LblUsuario;
+        private System.Windows.Forms.TextBox TxtPassword;
+        private System.Windows.Forms.Label LblBD;
+        private System.Windows.Forms.Label LblPassword;
+        private System.Windows.Forms.TextBox TxtPuerto;
+        private System.Windows.Forms.TextBox TxtUsuario;
+        private System.Windows.Forms.TextBox TxtBD;
     }
 }
 
