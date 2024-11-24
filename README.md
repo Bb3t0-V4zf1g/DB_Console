@@ -16,6 +16,7 @@ Application was developed to create connections to databases through a login. Th
 - To create connection to different users.
 - A well-made and interactive app interface.
 - To learn about the connection between databases and different technologies.
+- I need clonate the repository and create a new branch to work on the project. (Perdonal objective)
   
 ## Cloning the Repository
 To clone the DB_Console repository, you can use the following command:
