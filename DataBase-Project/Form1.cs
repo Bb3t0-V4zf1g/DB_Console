@@ -40,18 +40,23 @@ namespace DataBase_Project
             try
             {
                 String consulta = "SHOW DATABASES";
-                MySqlCommand comando = new MySqlCommand(consulta);
-                comando.Connection = conexion;
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
                 conexion.Open();
                 reader = comando.ExecuteReader();
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     data += reader.GetString(0) + "\n";
                 }
 
+                reader.Close(); // Cerrar el DataReader antes de abrir el segundo formulario
+
                 MessageBox.Show("Conexión Correcta");
                 MessageBox.Show(data);
+                //Abrir el formulario 2 con la BD activa
+                Form2 form2 = new Form2(conexion, BD);
+                form2.Show();
+
             }
             catch (MySqlException ex)
             {
@@ -59,10 +64,15 @@ namespace DataBase_Project
             }
             finally
             {
+                if (reader != null && !reader.IsClosed)
+                {
+                    reader.Close();
+                }
                 conexion.Close();
             }
-
         }
+
+
 
         private void TxtPuerto_TextChanged(object sender, EventArgs e)
         {

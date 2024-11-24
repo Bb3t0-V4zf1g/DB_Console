@@ -61,6 +61,7 @@
             this.TxtServidor.Name = "TxtServidor";
             this.TxtServidor.Size = new System.Drawing.Size(149, 20);
             this.TxtServidor.TabIndex = 1;
+            this.TxtServidor.Text = "localhost";
             this.TxtServidor.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // BtnLogin
@@ -69,7 +70,7 @@
             this.BtnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(82, 27);
-            this.BtnLogin.TabIndex = 3;
+            this.BtnLogin.TabIndex = 6;
             this.BtnLogin.Text = "Conectar";
             this.BtnLogin.UseVisualStyleBackColor = true;
             this.BtnLogin.Click += new System.EventHandler(this.btnOk_Click);
@@ -79,8 +80,8 @@
             this.BtnCancelar.Location = new System.Drawing.Point(281, 254);
             this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(56, 27);
-            this.BtnCancelar.TabIndex = 4;
+            this.BtnCancelar.Size = new System.Drawing.Size(61, 27);
+            this.BtnCancelar.TabIndex = 7;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -124,7 +125,8 @@
             this.TxtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(149, 20);
-            this.TxtPassword.TabIndex = 8;
+            this.TxtPassword.TabIndex = 4;
+            this.TxtPassword.Text = "sgs123456";
             this.TxtPassword.UseSystemPasswordChar = true;
             // 
             // LblBD
@@ -155,7 +157,8 @@
             this.TxtPuerto.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPuerto.Name = "TxtPuerto";
             this.TxtPuerto.Size = new System.Drawing.Size(149, 20);
-            this.TxtPuerto.TabIndex = 13;
+            this.TxtPuerto.TabIndex = 2;
+            this.TxtPuerto.Text = "3307";
             // 
             // TxtUsuario
             // 
@@ -163,7 +166,8 @@
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(149, 20);
-            this.TxtUsuario.TabIndex = 14;
+            this.TxtUsuario.TabIndex = 3;
+            this.TxtUsuario.Text = "root";
             // 
             // TxtBD
             // 
@@ -171,7 +175,8 @@
             this.TxtBD.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBD.Name = "TxtBD";
             this.TxtBD.Size = new System.Drawing.Size(149, 20);
-            this.TxtBD.TabIndex = 15;
+            this.TxtBD.TabIndex = 5;
+            this.TxtBD.Text = "bibliotecas_202x";
             // 
             // Form1
             // 
