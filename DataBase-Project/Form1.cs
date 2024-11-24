@@ -21,5 +21,10 @@ namespace DataBase_Project
         {
 
         }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

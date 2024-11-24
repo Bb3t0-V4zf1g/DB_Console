@@ -65,12 +65,13 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(229, 273);
+            this.btnOk.Location = new System.Drawing.Point(195, 273);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 33);
+            this.btnOk.Size = new System.Drawing.Size(109, 33);
             this.btnOk.TabIndex = 3;
-            this.btnOk.Text = "Ok";
+            this.btnOk.Text = "Iniciar Sesión";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -78,7 +79,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 33);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // lblUser
