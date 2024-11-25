@@ -1,4 +1,6 @@
-﻿namespace DataBase_Project
+﻿using System;
+
+namespace DataBase_Project
 {
     partial class Form1
     {
@@ -40,36 +42,32 @@
             this.LblPassword = new System.Windows.Forms.Label();
             this.TxtPuerto = new System.Windows.Forms.TextBox();
             this.TxtUsuario = new System.Windows.Forms.TextBox();
-            this.TxtBD = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblBienvenido
             // 
             this.lblBienvenido.AutoSize = true;
             this.lblBienvenido.Font = new System.Drawing.Font("Mongolian Baiti", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenido.Location = new System.Drawing.Point(163, 9);
-            this.lblBienvenido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBienvenido.Location = new System.Drawing.Point(217, 11);
             this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(193, 40);
+            this.lblBienvenido.Size = new System.Drawing.Size(241, 50);
             this.lblBienvenido.TabIndex = 0;
             this.lblBienvenido.Text = "Bienvenido";
             // 
             // TxtServidor
             // 
-            this.TxtServidor.Location = new System.Drawing.Point(207, 61);
-            this.TxtServidor.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtServidor.Location = new System.Drawing.Point(276, 75);
+            this.TxtServidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtServidor.Name = "TxtServidor";
-            this.TxtServidor.Size = new System.Drawing.Size(149, 20);
+            this.TxtServidor.Size = new System.Drawing.Size(197, 22);
             this.TxtServidor.TabIndex = 1;
-            this.TxtServidor.Text = "localhost";
-            this.TxtServidor.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // BtnLogin
             // 
-            this.BtnLogin.Location = new System.Drawing.Point(144, 254);
-            this.BtnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnLogin.Location = new System.Drawing.Point(192, 313);
+            this.BtnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(82, 27);
+            this.BtnLogin.Size = new System.Drawing.Size(109, 33);
             this.BtnLogin.TabIndex = 6;
             this.BtnLogin.Text = "Conectar";
             this.BtnLogin.UseVisualStyleBackColor = true;
@@ -77,10 +75,10 @@
             // 
             // BtnCancelar
             // 
-            this.BtnCancelar.Location = new System.Drawing.Point(281, 254);
-            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCancelar.Location = new System.Drawing.Point(375, 313);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(61, 27);
+            this.BtnCancelar.Size = new System.Drawing.Size(81, 33);
             this.BtnCancelar.TabIndex = 7;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = true;
@@ -90,10 +88,9 @@
             // 
             this.LblServidor.AutoSize = true;
             this.LblServidor.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblServidor.Location = new System.Drawing.Point(118, 61);
-            this.LblServidor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblServidor.Location = new System.Drawing.Point(157, 75);
             this.LblServidor.Name = "LblServidor";
-            this.LblServidor.Size = new System.Drawing.Size(65, 16);
+            this.LblServidor.Size = new System.Drawing.Size(86, 21);
             this.LblServidor.TabIndex = 5;
             this.LblServidor.Text = "Servidor:";
             // 
@@ -101,10 +98,9 @@
             // 
             this.LblPuerto.AutoSize = true;
             this.LblPuerto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPuerto.Location = new System.Drawing.Point(118, 105);
-            this.LblPuerto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblPuerto.Location = new System.Drawing.Point(157, 129);
             this.LblPuerto.Name = "LblPuerto";
-            this.LblPuerto.Size = new System.Drawing.Size(52, 16);
+            this.LblPuerto.Size = new System.Drawing.Size(69, 21);
             this.LblPuerto.TabIndex = 6;
             this.LblPuerto.Text = "Puerto:";
             // 
@@ -112,78 +108,61 @@
             // 
             this.LblUsuario.AutoSize = true;
             this.LblUsuario.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUsuario.Location = new System.Drawing.Point(118, 139);
-            this.LblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblUsuario.Location = new System.Drawing.Point(157, 171);
             this.LblUsuario.Name = "LblUsuario";
-            this.LblUsuario.Size = new System.Drawing.Size(61, 16);
+            this.LblUsuario.Size = new System.Drawing.Size(80, 21);
             this.LblUsuario.TabIndex = 7;
             this.LblUsuario.Text = "Usuario:";
             // 
             // TxtPassword
             // 
-            this.TxtPassword.Location = new System.Drawing.Point(207, 176);
-            this.TxtPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPassword.Location = new System.Drawing.Point(276, 217);
+            this.TxtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(149, 20);
+            this.TxtPassword.Size = new System.Drawing.Size(197, 22);
             this.TxtPassword.TabIndex = 4;
-            this.TxtPassword.Text = "sgs123456";
             this.TxtPassword.UseSystemPasswordChar = true;
             // 
             // LblBD
             // 
             this.LblBD.AutoSize = true;
             this.LblBD.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblBD.Location = new System.Drawing.Point(73, 218);
-            this.LblBD.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblBD.Location = new System.Drawing.Point(97, 268);
             this.LblBD.Name = "LblBD";
-            this.LblBD.Size = new System.Drawing.Size(110, 16);
+            this.LblBD.Size = new System.Drawing.Size(0, 21);
             this.LblBD.TabIndex = 9;
-            this.LblBD.Text = "Basde de Datos:";
             // 
             // LblPassword
             // 
             this.LblPassword.AutoSize = true;
             this.LblPassword.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPassword.Location = new System.Drawing.Point(101, 180);
-            this.LblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblPassword.Location = new System.Drawing.Point(135, 222);
             this.LblPassword.Name = "LblPassword";
-            this.LblPassword.Size = new System.Drawing.Size(82, 16);
+            this.LblPassword.Size = new System.Drawing.Size(107, 21);
             this.LblPassword.TabIndex = 12;
             this.LblPassword.Text = "Contraseña:";
             // 
             // TxtPuerto
             // 
-            this.TxtPuerto.Location = new System.Drawing.Point(207, 101);
-            this.TxtPuerto.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtPuerto.Location = new System.Drawing.Point(276, 124);
+            this.TxtPuerto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtPuerto.Name = "TxtPuerto";
-            this.TxtPuerto.Size = new System.Drawing.Size(149, 20);
+            this.TxtPuerto.Size = new System.Drawing.Size(197, 22);
             this.TxtPuerto.TabIndex = 2;
-            this.TxtPuerto.Text = "3307";
             // 
             // TxtUsuario
             // 
-            this.TxtUsuario.Location = new System.Drawing.Point(207, 135);
-            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtUsuario.Location = new System.Drawing.Point(276, 166);
+            this.TxtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TxtUsuario.Name = "TxtUsuario";
-            this.TxtUsuario.Size = new System.Drawing.Size(149, 20);
+            this.TxtUsuario.Size = new System.Drawing.Size(197, 22);
             this.TxtUsuario.TabIndex = 3;
-            this.TxtUsuario.Text = "root";
-            // 
-            // TxtBD
-            // 
-            this.TxtBD.Location = new System.Drawing.Point(207, 214);
-            this.TxtBD.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtBD.Name = "TxtBD";
-            this.TxtBD.Size = new System.Drawing.Size(149, 20);
-            this.TxtBD.TabIndex = 5;
-            this.TxtBD.Text = "bibliotecas_202x";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 292);
-            this.Controls.Add(this.TxtBD);
+            this.ClientSize = new System.Drawing.Size(669, 359);
             this.Controls.Add(this.TxtUsuario);
             this.Controls.Add(this.TxtPuerto);
             this.Controls.Add(this.LblPassword);
@@ -196,14 +175,14 @@
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtServidor);
             this.Controls.Add(this.lblBienvenido);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
 
         #endregion
 
@@ -219,7 +198,6 @@
         private System.Windows.Forms.Label LblPassword;
         private System.Windows.Forms.TextBox TxtPuerto;
         private System.Windows.Forms.TextBox TxtUsuario;
-        private System.Windows.Forms.TextBox TxtBD;
     }
 }
 

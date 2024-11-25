@@ -9,22 +9,17 @@ namespace DataBase_Project
 {
     public partial class Form2 : Form
     {
+        private string cadenaConexion;
         private MySqlConnection conexion;
-        private string database;
         private int currentPage = 1;
         private int pageSize = 100; // Número de registros por página
 
-        public Form2(MySqlConnection conexion, string database)
+        public Form2(string cadenaConexion)
         {
             InitializeComponent();
-            this.conexion = conexion;
-            this.database = database;
+            this.cadenaConexion = cadenaConexion;
             ConfigureListView();
-            LoadTables();
-        }
-
-        public Form2()
-        {
+            LoadDatabases();
         }
 
         private void ConfigureListView()
@@ -69,25 +64,30 @@ namespace DataBase_Project
             e.Graphics.DrawString(e.SubItem.Text, e.SubItem.Font, Brushes.Black, e.Bounds);
         }
 
-        private void LoadTables()
+        private void LoadDatabases()
         {
             try
             {
+                if (conexion == null)
+                {
+                    conexion = new MySqlConnection(cadenaConexion);
+                }
+
                 if (conexion.State != ConnectionState.Open)
                 {
                     conexion.Open();
                 }
 
-                String consulta = "SHOW TABLES";
+                String consulta = "SHOW DATABASES";
                 MySqlCommand comando = new MySqlCommand(consulta, conexion);
                 MySqlDataReader reader = comando.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    CmbTablas.Items.Add(reader.GetString(0));
+                    CmbDataBases.Items.Add(reader.GetString(0));
                 }
 
-                reader.Close(); // Cerrar el DataReader después de cargar las tablas
+                reader.Close();
             }
             catch (MySqlException ex)
             {
@@ -102,7 +102,54 @@ namespace DataBase_Project
             }
         }
 
-        private void cmbTables_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbDataBases_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbDataBases.SelectedItem != null)
+            {
+                string selectedDatabase = CmbDataBases.SelectedItem.ToString();
+                string nuevaCadenaConexion = $"{cadenaConexion};Database={selectedDatabase};";
+                conexion = new MySqlConnection(nuevaCadenaConexion);
+
+                LoadTables(selectedDatabase);
+            }
+        }
+
+        private void LoadTables(string selectedDatabase)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                String consulta = $"SHOW TABLES FROM {selectedDatabase}";
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                CmbTablas.Items.Clear();
+
+                while (reader.Read())
+                {
+                    CmbTablas.Items.Add(reader.GetString(0));
+                }
+
+                reader.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        private void CmbTablas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CmbTablas.SelectedItem != null)
             {
@@ -115,7 +162,11 @@ namespace DataBase_Project
         {
             try
             {
-                conexion.Open();
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
                 MySqlCommand comando = new MySqlCommand(query, conexion);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
                 DataTable dataTable = new DataTable();
@@ -144,7 +195,10 @@ namespace DataBase_Project
             }
             finally
             {
-                conexion.Close();
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
             }
         }
 
@@ -188,7 +242,8 @@ namespace DataBase_Project
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            CmbTablas.SelectedIndexChanged += new EventHandler(cmbTables_SelectedIndexChanged);
+            CmbTablas.SelectedIndexChanged += new EventHandler(CmbTablas_SelectedIndexChanged);
+            CmbDataBases.SelectedIndexChanged += new EventHandler(CmbDataBases_SelectedIndexChanged);
             BtnAnterior.Click += new EventHandler(BtnAnterior_Click);
             BtnSiguiente.Click += new EventHandler(BtnSiguiente_Click);
             BtnBuscar.Click += new EventHandler(BtnBuscar_Click);
@@ -196,4 +251,3 @@ namespace DataBase_Project
         }
     }
 }
-
