@@ -249,5 +249,6 @@ namespace DataBase_Project
             BtnBuscar.Click += new EventHandler(BtnBuscar_Click);
             BtnCerrasSesion.Click += new EventHandler(BtnCerrarSesion_Click);
         }
+
     }
 }

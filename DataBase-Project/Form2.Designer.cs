@@ -41,6 +41,9 @@ namespace DataBase_Project
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.lblDB = new System.Windows.Forms.Label();
             this.CmbDataBases = new System.Windows.Forms.ComboBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblTablas
@@ -75,10 +78,10 @@ namespace DataBase_Project
             // 
             // BtnSiguiente
             // 
-            this.BtnSiguiente.Location = new System.Drawing.Point(863, 569);
+            this.BtnSiguiente.Location = new System.Drawing.Point(913, 569);
             this.BtnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSiguiente.Name = "BtnSiguiente";
-            this.BtnSiguiente.Size = new System.Drawing.Size(168, 28);
+            this.BtnSiguiente.Size = new System.Drawing.Size(117, 28);
             this.BtnSiguiente.TabIndex = 11;
             this.BtnSiguiente.Text = "Siguiente";
             this.BtnSiguiente.UseVisualStyleBackColor = true;
@@ -88,7 +91,7 @@ namespace DataBase_Project
             this.BtnAnterior.Location = new System.Drawing.Point(19, 569);
             this.BtnAnterior.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAnterior.Name = "BtnAnterior";
-            this.BtnAnterior.Size = new System.Drawing.Size(168, 28);
+            this.BtnAnterior.Size = new System.Drawing.Size(121, 28);
             this.BtnAnterior.TabIndex = 12;
             this.BtnAnterior.Text = "Anterior";
             this.BtnAnterior.UseVisualStyleBackColor = true;
@@ -155,11 +158,41 @@ namespace DataBase_Project
             this.CmbDataBases.Size = new System.Drawing.Size(261, 24);
             this.CmbDataBases.TabIndex = 18;
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(249, 569);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(125, 28);
+            this.btnAgregar.TabIndex = 19;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(475, 569);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(125, 28);
+            this.btnModificar.TabIndex = 20;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(696, 569);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(125, 28);
+            this.btnEliminar.TabIndex = 21;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 612);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.CmbDataBases);
             this.Controls.Add(this.lblDB);
             this.Controls.Add(this.BtnBuscar);
@@ -173,6 +206,7 @@ namespace DataBase_Project
             this.Controls.Add(this.LblTablas);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestorBD";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
@@ -198,5 +232,8 @@ namespace DataBase_Project
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.Label lblDB;
         private System.Windows.Forms.ComboBox CmbDataBases;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

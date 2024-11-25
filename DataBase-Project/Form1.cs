@@ -47,5 +47,10 @@ namespace DataBase_Project
             TxtServidor.Text = "";
             TxtPuerto.Text = "";
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
