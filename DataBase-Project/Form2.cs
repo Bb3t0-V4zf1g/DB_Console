@@ -107,18 +107,16 @@ namespace DataBase_Project
             if (CmbTablas.SelectedItem != null)
             {
                 currentPage = 1; // Reiniciar a la primera página al cambiar de tabla
-                LoadTableData(CmbTablas.SelectedItem.ToString(), currentPage, pageSize);
+                LoadTableData($"SELECT * FROM {CmbTablas.SelectedItem.ToString()} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
             }
         }
 
-        private void LoadTableData(string tableName, int page, int pageSize)
+        private void LoadTableData(string query)
         {
             try
             {
                 conexion.Open();
-                int offset = (page - 1) * pageSize;
-                String consulta = $"SELECT * FROM {tableName} LIMIT {pageSize} OFFSET {offset}";
-                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                MySqlCommand comando = new MySqlCommand(query, conexion);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -155,14 +153,37 @@ namespace DataBase_Project
             if (currentPage > 1)
             {
                 currentPage--;
-                LoadTableData(CmbTablas.SelectedItem.ToString(), currentPage, pageSize);
+                LoadTableData($"SELECT * FROM {CmbTablas.SelectedItem.ToString()} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
             }
         }
 
         private void BtnSiguiente_Click(object sender, EventArgs e)
         {
             currentPage++;
-            LoadTableData(CmbTablas.SelectedItem.ToString(), currentPage, pageSize);
+            LoadTableData($"SELECT * FROM {CmbTablas.SelectedItem.ToString()} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            string query = TxtQuerys.Text.Trim();
+            if (string.IsNullOrEmpty(query))
+            {
+                MessageBox.Show("Por favor, ingrese una consulta.");
+                return;
+            }
+
+            if (!query.ToUpper().StartsWith("SELECT"))
+            {
+                MessageBox.Show("Solo se permiten consultas SELECT.");
+                return;
+            }
+
+            LoadTableData(query);
+        }
+
+        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -170,6 +191,8 @@ namespace DataBase_Project
             CmbTablas.SelectedIndexChanged += new EventHandler(cmbTables_SelectedIndexChanged);
             BtnAnterior.Click += new EventHandler(BtnAnterior_Click);
             BtnSiguiente.Click += new EventHandler(BtnSiguiente_Click);
+            BtnBuscar.Click += new EventHandler(BtnBuscar_Click);
+            BtnCerrasSesion.Click += new EventHandler(BtnCerrarSesion_Click);
         }
     }
 }
