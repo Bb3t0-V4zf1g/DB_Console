@@ -61,6 +61,7 @@ namespace DataBase_Project
             this.TxtServidor.Name = "TxtServidor";
             this.TxtServidor.Size = new System.Drawing.Size(197, 22);
             this.TxtServidor.TabIndex = 1;
+            this.TxtServidor.Text = "localhost";
             // 
             // BtnLogin
             // 
@@ -121,6 +122,7 @@ namespace DataBase_Project
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.Size = new System.Drawing.Size(197, 22);
             this.TxtPassword.TabIndex = 4;
+            this.TxtPassword.Text = "sgs123456";
             this.TxtPassword.UseSystemPasswordChar = true;
             // 
             // LblBD
@@ -149,6 +151,7 @@ namespace DataBase_Project
             this.TxtPuerto.Name = "TxtPuerto";
             this.TxtPuerto.Size = new System.Drawing.Size(197, 22);
             this.TxtPuerto.TabIndex = 2;
+            this.TxtPuerto.Text = "3306";
             // 
             // TxtUsuario
             // 
@@ -157,6 +160,7 @@ namespace DataBase_Project
             this.TxtUsuario.Name = "TxtUsuario";
             this.TxtUsuario.Size = new System.Drawing.Size(197, 22);
             this.TxtUsuario.TabIndex = 3;
+            this.TxtUsuario.Text = "root";
             // 
             // Form1
             // 

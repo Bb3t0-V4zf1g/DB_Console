@@ -136,7 +136,7 @@ namespace DataBase_Project
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(168, 28);
             this.BtnBuscar.TabIndex = 16;
-            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.Text = "Ejecutar";
             this.BtnBuscar.UseVisualStyleBackColor = true;
             // 
             // lblDB

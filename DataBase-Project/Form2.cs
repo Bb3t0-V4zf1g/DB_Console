@@ -202,6 +202,56 @@ namespace DataBase_Project
             }
         }
 
+        private void ExecuteNonQuery(string query)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                MySqlCommand comando = new MySqlCommand(query, conexion);
+                int affectedRows = comando.ExecuteNonQuery();
+                MessageBox.Show($"Consulta ejecutada correctamente. Filas afectadas: {affectedRows}");
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            string query = TxtQuerys.Text.Trim();
+            if (string.IsNullOrEmpty(query))
+            {
+                MessageBox.Show("Por favor, ingrese una consulta.");
+                return;
+            }
+
+            string upperQuery = query.ToUpper();
+            if (upperQuery.StartsWith("SELECT"))
+            {
+                LoadTableData(query);
+            }
+            else if (upperQuery.StartsWith("INSERT") || upperQuery.StartsWith("UPDATE") || upperQuery.StartsWith("DELETE"))
+            {
+                ExecuteNonQuery(query);
+            }
+            else
+            {
+                MessageBox.Show("Solo se permiten consultas SELECT, INSERT, UPDATE y DELETE.");
+            }
+        }
+
         private void BtnAnterior_Click(object sender, EventArgs e)
         {
             if (currentPage > 1)
@@ -215,24 +265,6 @@ namespace DataBase_Project
         {
             currentPage++;
             LoadTableData($"SELECT * FROM {CmbTablas.SelectedItem.ToString()} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
-        }
-
-        private void BtnBuscar_Click(object sender, EventArgs e)
-        {
-            string query = TxtQuerys.Text.Trim();
-            if (string.IsNullOrEmpty(query))
-            {
-                MessageBox.Show("Por favor, ingrese una consulta.");
-                return;
-            }
-
-            if (!query.ToUpper().StartsWith("SELECT"))
-            {
-                MessageBox.Show("Solo se permiten consultas SELECT.");
-                return;
-            }
-
-            LoadTableData(query);
         }
 
         private void BtnCerrarSesion_Click(object sender, EventArgs e)
@@ -249,6 +281,5 @@ namespace DataBase_Project
             BtnBuscar.Click += new EventHandler(BtnBuscar_Click);
             BtnCerrasSesion.Click += new EventHandler(BtnCerrarSesion_Click);
         }
-
     }
 }
