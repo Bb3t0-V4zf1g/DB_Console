@@ -44,6 +44,7 @@ namespace DataBase_Project
             LvBD.DrawColumnHeader += new DrawListViewColumnHeaderEventHandler(LvBD_DrawColumnHeader);
             LvBD.DrawItem += new DrawListViewItemEventHandler(LvBD_DrawItem);
             LvBD.DrawSubItem += new DrawListViewSubItemEventHandler(LvBD_DrawSubItem);
+            LvBD.SelectedIndexChanged += new EventHandler(LvBD_SelectedIndexChanged);
         }
 
         private void LvBD_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -69,6 +70,13 @@ namespace DataBase_Project
                 e.Graphics.FillRectangle(Brushes.White, e.Bounds);
             }
             e.Graphics.DrawString(e.SubItem.Text, e.SubItem.Font, Brushes.Black, e.Bounds);
+        }
+
+        private void LvBD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool isItemSelected = LvBD.SelectedItems.Count > 0;
+            BtnModificar.Enabled = isItemSelected;
+            BtnEliminar.Enabled = isItemSelected;
         }
 
         private void LoadDatabases()
@@ -339,6 +347,9 @@ namespace DataBase_Project
             BtnSiguiente.Click += new EventHandler(BtnSiguiente_Click);
             BtnBuscar.Click += new EventHandler(BtnBuscar_Click);
             BtnCerrasSesion.Click += new EventHandler(BtnCerrarSesion_Click);
+            BtnModificar.Click += new EventHandler(BtnModificar_Click);
+            BtnEliminar.Click += new EventHandler(BtnEliminar_Click);
+            BtnAgregar.Click += new EventHandler(BtnAgregar_Click);
 
             // Configurar lblPagination inicialmente
             UpdatePaginationLabel();
@@ -348,6 +359,47 @@ namespace DataBase_Project
         {
             conexion.Close();
             this.Close();
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            if (LvBD.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = LvBD.SelectedItems[0];
+                string tableName = CmbTablas.SelectedItem.ToString();
+                string primaryKeyColumn = LvBD.Columns[0].Text;
+                string primaryKeyValue = selectedItem.SubItems[0].Text;
+
+                // Abrir el formulario de modificación
+                FormModificar formModificar = new FormModificar(tableName, primaryKeyColumn, primaryKeyValue, CmbDataBases.SelectedItem.ToString(), this.cadenaConexion);
+                formModificar.ShowDialog();
+                LoadTableData($"SELECT * FROM {tableName} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (LvBD.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = LvBD.SelectedItems[0];
+                string tableName = CmbTablas.SelectedItem.ToString();
+                string primaryKeyColumn = LvBD.Columns[0].Text;
+                string primaryKeyValue = selectedItem.SubItems[0].Text;
+
+                string query = $"DELETE FROM {tableName} WHERE {primaryKeyColumn} = '{primaryKeyValue}'";
+                ExecuteNonQuery(query);
+                LoadTableData($"SELECT * FROM {tableName} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+            }
+        }
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            string tableName = CmbTablas.SelectedItem.ToString();
+
+            // Abrir el formulario de agregar
+            FormAgregar formAgregar = new FormAgregar(tableName, CmbDataBases.SelectedItem.ToString(), this.cadenaConexion);
+            formAgregar.ShowDialog();
+            LoadTableData($"SELECT * FROM {tableName} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
         }
     }
 }

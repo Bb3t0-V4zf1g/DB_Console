@@ -41,9 +41,9 @@ namespace DataBase_Project
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.lblDB = new System.Windows.Forms.Label();
             this.CmbDataBases = new System.Windows.Forms.ComboBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.BtnAgregar = new System.Windows.Forms.Button();
+            this.BtnModificar = new System.Windows.Forms.Button();
+            this.BtnEliminar = new System.Windows.Forms.Button();
             this.lblPagination = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -159,32 +159,32 @@ namespace DataBase_Project
             this.CmbDataBases.Size = new System.Drawing.Size(241, 24);
             this.CmbDataBases.TabIndex = 18;
             // 
-            // btnAgregar
+            // BtnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(249, 569);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(125, 28);
-            this.btnAgregar.TabIndex = 19;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.BtnAgregar.Location = new System.Drawing.Point(249, 569);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.Size = new System.Drawing.Size(125, 28);
+            this.BtnAgregar.TabIndex = 19;
+            this.BtnAgregar.Text = "Agregar";
+            this.BtnAgregar.UseVisualStyleBackColor = true;
             // 
-            // btnModificar
+            // BtnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(475, 569);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(125, 28);
-            this.btnModificar.TabIndex = 20;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.BtnModificar.Location = new System.Drawing.Point(475, 569);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(125, 28);
+            this.BtnModificar.TabIndex = 20;
+            this.BtnModificar.Text = "Modificar";
+            this.BtnModificar.UseVisualStyleBackColor = true;
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(696, 569);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(125, 28);
-            this.btnEliminar.TabIndex = 21;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Location = new System.Drawing.Point(696, 569);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(125, 28);
+            this.BtnEliminar.TabIndex = 21;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.UseVisualStyleBackColor = true;
             // 
             // lblPagination
             // 
@@ -200,9 +200,9 @@ namespace DataBase_Project
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 612);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.BtnEliminar);
+            this.Controls.Add(this.BtnModificar);
+            this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.CmbDataBases);
             this.Controls.Add(this.lblDB);
             this.Controls.Add(this.BtnBuscar);
@@ -243,8 +243,8 @@ namespace DataBase_Project
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.Label lblDB;
         private System.Windows.Forms.ComboBox CmbDataBases;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button BtnAgregar;
+        private System.Windows.Forms.Button BtnModificar;
+        private System.Windows.Forms.Button BtnEliminar;
     }
 }
