@@ -44,6 +44,12 @@ namespace DataBase_Project
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblTablas
@@ -69,47 +75,53 @@ namespace DataBase_Project
             // LvBD
             // 
             this.LvBD.HideSelection = false;
-            this.LvBD.Location = new System.Drawing.Point(19, 325);
+            this.LvBD.Location = new System.Drawing.Point(23, 243);
             this.LvBD.Margin = new System.Windows.Forms.Padding(4);
             this.LvBD.Name = "LvBD";
-            this.LvBD.Size = new System.Drawing.Size(1011, 213);
+            this.LvBD.Size = new System.Drawing.Size(1008, 213);
             this.LvBD.TabIndex = 8;
             this.LvBD.UseCompatibleStateImageBehavior = false;
             // 
             // BtnSiguiente
             // 
-            this.BtnSiguiente.Location = new System.Drawing.Point(913, 569);
+            this.BtnSiguiente.BackColor = System.Drawing.Color.MintCream;
+            this.BtnSiguiente.Location = new System.Drawing.Point(914, 9);
             this.BtnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSiguiente.Name = "BtnSiguiente";
             this.BtnSiguiente.Size = new System.Drawing.Size(117, 28);
             this.BtnSiguiente.TabIndex = 11;
             this.BtnSiguiente.Text = "Siguiente";
-            this.BtnSiguiente.UseVisualStyleBackColor = true;
+            this.BtnSiguiente.UseVisualStyleBackColor = false;
             // 
             // BtnAnterior
             // 
-            this.BtnAnterior.Location = new System.Drawing.Point(19, 569);
+            this.BtnAnterior.BackColor = System.Drawing.Color.MintCream;
+            this.BtnAnterior.Location = new System.Drawing.Point(23, 8);
             this.BtnAnterior.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAnterior.Name = "BtnAnterior";
             this.BtnAnterior.Size = new System.Drawing.Size(121, 28);
             this.BtnAnterior.TabIndex = 12;
             this.BtnAnterior.Text = "Anterior";
-            this.BtnAnterior.UseVisualStyleBackColor = true;
+            this.BtnAnterior.UseVisualStyleBackColor = false;
             // 
             // TxtQuerys
             // 
-            this.TxtQuerys.Location = new System.Drawing.Point(19, 89);
+            this.TxtQuerys.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtQuerys.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtQuerys.Location = new System.Drawing.Point(23, 23);
             this.TxtQuerys.Margin = new System.Windows.Forms.Padding(4);
             this.TxtQuerys.Multiline = true;
             this.TxtQuerys.Name = "TxtQuerys";
-            this.TxtQuerys.Size = new System.Drawing.Size(1011, 212);
+            this.TxtQuerys.Size = new System.Drawing.Size(1008, 212);
             this.TxtQuerys.TabIndex = 13;
+            this.TxtQuerys.TextChanged += new System.EventHandler(this.TxtQuerys_TextChanged);
             // 
             // LblInfo
             // 
             this.LblInfo.AutoSize = true;
             this.LblInfo.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblInfo.Location = new System.Drawing.Point(505, 65);
+            this.LblInfo.ForeColor = System.Drawing.Color.White;
+            this.LblInfo.Location = new System.Drawing.Point(506, 55);
             this.LblInfo.Name = "LblInfo";
             this.LblInfo.Size = new System.Drawing.Size(73, 21);
             this.LblInfo.TabIndex = 14;
@@ -117,27 +129,28 @@ namespace DataBase_Project
             // 
             // BtnCerrasSesion
             // 
-            this.BtnCerrasSesion.BackColor = System.Drawing.Color.Red;
+            this.BtnCerrasSesion.BackColor = System.Drawing.Color.DarkRed;
             this.BtnCerrasSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCerrasSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrasSesion.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnCerrasSesion.Location = new System.Drawing.Point(865, 1);
+            this.BtnCerrasSesion.Location = new System.Drawing.Point(882, 7);
             this.BtnCerrasSesion.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCerrasSesion.Name = "BtnCerrasSesion";
-            this.BtnCerrasSesion.Size = new System.Drawing.Size(168, 28);
+            this.BtnCerrasSesion.Size = new System.Drawing.Size(154, 28);
             this.BtnCerrasSesion.TabIndex = 15;
             this.BtnCerrasSesion.Text = "Cerrar Sesion";
             this.BtnCerrasSesion.UseVisualStyleBackColor = false;
             // 
             // BtnBuscar
             // 
+            this.BtnBuscar.BackColor = System.Drawing.Color.MintCream;
             this.BtnBuscar.Location = new System.Drawing.Point(863, 53);
             this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(168, 28);
             this.BtnBuscar.TabIndex = 16;
             this.BtnBuscar.Text = "Ejecutar";
-            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.UseVisualStyleBackColor = false;
             // 
             // lblDB
             // 
@@ -160,55 +173,94 @@ namespace DataBase_Project
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(249, 569);
+            this.btnAgregar.BackColor = System.Drawing.Color.MintCream;
+            this.btnAgregar.Location = new System.Drawing.Point(249, 9);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(125, 28);
             this.btnAgregar.TabIndex = 19;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(475, 569);
+            this.btnModificar.BackColor = System.Drawing.Color.MintCream;
+            this.btnModificar.Location = new System.Drawing.Point(475, 9);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(125, 28);
             this.btnModificar.TabIndex = 20;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(696, 569);
+            this.btnEliminar.BackColor = System.Drawing.Color.MintCream;
+            this.btnEliminar.Location = new System.Drawing.Point(696, 9);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(125, 28);
             this.btnEliminar.TabIndex = 21;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel1.Controls.Add(this.TxtQuerys);
+            this.panel1.Controls.Add(this.LvBD);
+            this.panel1.Location = new System.Drawing.Point(0, 88);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1059, 469);
+            this.panel1.TabIndex = 22;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel2.Controls.Add(this.btnEliminar);
+            this.panel2.Controls.Add(this.btnModificar);
+            this.panel2.Controls.Add(this.btnAgregar);
+            this.panel2.Controls.Add(this.BtnAnterior);
+            this.panel2.Controls.Add(this.BtnSiguiente);
+            this.panel2.Location = new System.Drawing.Point(0, 563);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1059, 55);
+            this.panel2.TabIndex = 23;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel3.Controls.Add(this.CmbDataBases);
+            this.panel3.Controls.Add(this.lblDB);
+            this.panel3.Controls.Add(this.BtnCerrasSesion);
+            this.panel3.Controls.Add(this.CmbTablas);
+            this.panel3.Controls.Add(this.LblTablas);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1050, 46);
+            this.panel3.TabIndex = 24;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1049, 612);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.CmbDataBases);
-            this.Controls.Add(this.lblDB);
-            this.Controls.Add(this.BtnBuscar);
-            this.Controls.Add(this.BtnCerrasSesion);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.LblInfo);
-            this.Controls.Add(this.TxtQuerys);
-            this.Controls.Add(this.BtnAnterior);
-            this.Controls.Add(this.BtnSiguiente);
-            this.Controls.Add(this.LvBD);
-            this.Controls.Add(this.CmbTablas);
-            this.Controls.Add(this.LblTablas);
+            this.Controls.Add(this.BtnBuscar);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form2";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestorBD";
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +287,8 @@ namespace DataBase_Project
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }
