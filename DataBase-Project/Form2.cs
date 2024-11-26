@@ -286,5 +286,10 @@ namespace DataBase_Project
         {
 
         }
+
+        private void BtnAnterior_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

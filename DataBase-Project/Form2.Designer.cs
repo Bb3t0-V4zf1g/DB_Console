@@ -96,13 +96,14 @@ namespace DataBase_Project
             // BtnAnterior
             // 
             this.BtnAnterior.BackColor = System.Drawing.Color.MintCream;
-            this.BtnAnterior.Location = new System.Drawing.Point(23, 8);
+            this.BtnAnterior.Location = new System.Drawing.Point(23, 9);
             this.BtnAnterior.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAnterior.Name = "BtnAnterior";
             this.BtnAnterior.Size = new System.Drawing.Size(121, 28);
             this.BtnAnterior.TabIndex = 12;
             this.BtnAnterior.Text = "Anterior";
             this.BtnAnterior.UseVisualStyleBackColor = false;
+            this.BtnAnterior.Click += new System.EventHandler(this.BtnAnterior_Click_1);
             // 
             // TxtQuerys
             // 
