@@ -44,13 +44,14 @@ namespace DataBase_Project
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblPagination = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblTablas
             // 
             this.LblTablas.AutoSize = true;
             this.LblTablas.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTablas.Location = new System.Drawing.Point(483, 11);
+            this.LblTablas.Location = new System.Drawing.Point(553, 14);
             this.LblTablas.Name = "LblTablas";
             this.LblTablas.Size = new System.Drawing.Size(75, 21);
             this.LblTablas.TabIndex = 6;
@@ -59,10 +60,10 @@ namespace DataBase_Project
             // CmbTablas
             // 
             this.CmbTablas.FormattingEnabled = true;
-            this.CmbTablas.Location = new System.Drawing.Point(588, 8);
+            this.CmbTablas.Location = new System.Drawing.Point(624, 11);
             this.CmbTablas.Margin = new System.Windows.Forms.Padding(4);
             this.CmbTablas.Name = "CmbTablas";
-            this.CmbTablas.Size = new System.Drawing.Size(233, 24);
+            this.CmbTablas.Size = new System.Drawing.Size(221, 24);
             this.CmbTablas.TabIndex = 7;
             this.CmbTablas.SelectedIndexChanged += new System.EventHandler(this.CmbTablas_SelectedIndexChanged);
             // 
@@ -143,7 +144,7 @@ namespace DataBase_Project
             // 
             this.lblDB.AutoSize = true;
             this.lblDB.Font = new System.Drawing.Font("Mongolian Baiti", 12F);
-            this.lblDB.Location = new System.Drawing.Point(30, 11);
+            this.lblDB.Location = new System.Drawing.Point(150, 14);
             this.lblDB.Name = "lblDB";
             this.lblDB.Size = new System.Drawing.Size(139, 21);
             this.lblDB.TabIndex = 17;
@@ -153,9 +154,9 @@ namespace DataBase_Project
             // CmbDataBases
             // 
             this.CmbDataBases.FormattingEnabled = true;
-            this.CmbDataBases.Location = new System.Drawing.Point(185, 8);
+            this.CmbDataBases.Location = new System.Drawing.Point(295, 11);
             this.CmbDataBases.Name = "CmbDataBases";
-            this.CmbDataBases.Size = new System.Drawing.Size(261, 24);
+            this.CmbDataBases.Size = new System.Drawing.Size(241, 24);
             this.CmbDataBases.TabIndex = 18;
             // 
             // btnAgregar
@@ -185,6 +186,15 @@ namespace DataBase_Project
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             // 
+            // lblPagination
+            // 
+            this.lblPagination.AutoSize = true;
+            this.lblPagination.Location = new System.Drawing.Point(300, 400);
+            this.lblPagination.Name = "lblPagination";
+            this.lblPagination.Size = new System.Drawing.Size(89, 16);
+            this.lblPagination.TabIndex = 0;
+            this.lblPagination.Text = "Página 1 de 1";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -204,6 +214,7 @@ namespace DataBase_Project
             this.Controls.Add(this.LvBD);
             this.Controls.Add(this.CmbTablas);
             this.Controls.Add(this.LblTablas);
+            this.Controls.Add(this.lblPagination);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

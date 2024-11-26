@@ -12,7 +12,9 @@ namespace DataBase_Project
         private string cadenaConexion;
         private MySqlConnection conexion;
         private int currentPage = 1;
-        private int pageSize = 100; // Número de registros por página
+        private int pageSize = 50; // Número de registros por página
+        private int totalRecords = 0;
+        private Label lblPagination;
 
         public Form2(string cadenaConexion)
         {
@@ -20,6 +22,11 @@ namespace DataBase_Project
             this.cadenaConexion = cadenaConexion;
             ConfigureListView();
             LoadDatabases();
+            lblPagination = new Label();
+            lblPagination.Location = new Point(10, 10); // Ajusta la ubicación según sea necesario
+            lblPagination.Size = new Size(200, 20); // Ajusta el tamaño según sea necesario
+            this.Controls.Add(lblPagination);
+            UpdatePaginationLabel(); // Actualizar la etiqueta de paginación
         }
 
         private void ConfigureListView()
@@ -111,6 +118,9 @@ namespace DataBase_Project
                 conexion = new MySqlConnection(nuevaCadenaConexion);
 
                 LoadTables(selectedDatabase);
+                totalRecords = ObtenerNumeroDeRegistros(); // Actualizar el número total de registros
+                currentPage = 1; // Reiniciar a la primera página
+                UpdatePaginationLabel(); // Actualizar la etiqueta de paginación
             }
         }
 
@@ -155,6 +165,8 @@ namespace DataBase_Project
             {
                 currentPage = 1; // Reiniciar a la primera página al cambiar de tabla
                 LoadTableData($"SELECT * FROM {CmbTablas.SelectedItem.ToString()} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+                totalRecords = ObtenerNumeroDeRegistros(); // Actualizar el número total de registros
+                UpdatePaginationLabel(); // Actualizar la etiqueta de paginación
             }
         }
 
@@ -258,20 +270,67 @@ namespace DataBase_Project
             {
                 currentPage--;
                 LoadTableData($"SELECT * FROM {CmbTablas.SelectedItem.ToString()} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+                UpdatePaginationLabel(); // Actualizar la etiqueta de paginación
             }
         }
 
         private void BtnSiguiente_Click(object sender, EventArgs e)
         {
-            currentPage++;
-            LoadTableData($"SELECT * FROM {CmbTablas.SelectedItem.ToString()} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+            // Obtener el número total de registros
+            totalRecords = ObtenerNumeroDeRegistros();
+            int maxPage = (int)Math.Ceiling((double)totalRecords / pageSize);
+
+            if (currentPage < maxPage)
+            {
+                currentPage++;
+                LoadTableData($"SELECT * FROM {CmbTablas.SelectedItem.ToString()} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+            }
+            else
+            {
+                MessageBox.Show("Has alcanzado el límite de registros.");
+            }
+            UpdatePaginationLabel(); // Actualizar la etiqueta de paginación
         }
 
-        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        private int ObtenerNumeroDeRegistros()
         {
-            this.Close();
+            int totalRecords = 0;
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                if (CmbTablas.SelectedItem != null)
+                {
+                    String consulta = $"SELECT COUNT(*) FROM {CmbTablas.SelectedItem}";
+                    MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                    totalRecords = Convert.ToInt32(comando.ExecuteScalar());
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return totalRecords;
         }
 
+        // Nueva función para actualizar la etiqueta de paginación
+        private void UpdatePaginationLabel()
+        {
+            int maxPage = (int)Math.Ceiling((double)totalRecords / pageSize);
+            lblPagination.Text = $"Página {currentPage} de {maxPage}";
+        }
+
+        // Actualizar el evento Form2_Load para incluir la configuración inicial del lblPagination
         private void Form2_Load(object sender, EventArgs e)
         {
             CmbTablas.SelectedIndexChanged += new EventHandler(CmbTablas_SelectedIndexChanged);
@@ -280,6 +339,15 @@ namespace DataBase_Project
             BtnSiguiente.Click += new EventHandler(BtnSiguiente_Click);
             BtnBuscar.Click += new EventHandler(BtnBuscar_Click);
             BtnCerrasSesion.Click += new EventHandler(BtnCerrarSesion_Click);
+
+            // Configurar lblPagination inicialmente
+            UpdatePaginationLabel();
+        }
+
+        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            conexion.Close();
+            this.Close();
         }
     }
 }
