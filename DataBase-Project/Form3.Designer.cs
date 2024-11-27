@@ -34,8 +34,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.ClientSize = new System.Drawing.Size(571, 301);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormAgregar";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Registro";
             this.Load += new System.EventHandler(this.FormAgregar_Load);
             this.ResumeLayout(false);

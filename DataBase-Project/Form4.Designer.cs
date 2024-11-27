@@ -34,8 +34,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.ClientSize = new System.Drawing.Size(499, 274);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormModificar";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Registro";
             this.Load += new System.EventHandler(this.FormModificar_Load);
             this.ResumeLayout(false);
