@@ -45,6 +45,7 @@ namespace DataBase_Project
             this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.lblPagination = new System.Windows.Forms.Label();
+            this.BtnInfoSchema = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblTablas
@@ -109,10 +110,10 @@ namespace DataBase_Project
             // LblInfo
             // 
             this.LblInfo.AutoSize = true;
-            this.LblInfo.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblInfo.Location = new System.Drawing.Point(505, 65);
+            this.LblInfo.Font = new System.Drawing.Font("Mongolian Baiti", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblInfo.Location = new System.Drawing.Point(146, 43);
             this.LblInfo.Name = "LblInfo";
-            this.LblInfo.Size = new System.Drawing.Size(73, 21);
+            this.LblInfo.Size = new System.Drawing.Size(145, 43);
             this.LblInfo.TabIndex = 14;
             this.LblInfo.Text = "Querys ";
             // 
@@ -195,11 +196,22 @@ namespace DataBase_Project
             this.lblPagination.TabIndex = 0;
             this.lblPagination.Text = "Página 1 de 1";
             // 
+            // BtnInfoSchema
+            // 
+            this.BtnInfoSchema.Location = new System.Drawing.Point(624, 43);
+            this.BtnInfoSchema.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnInfoSchema.Name = "BtnInfoSchema";
+            this.BtnInfoSchema.Size = new System.Drawing.Size(221, 38);
+            this.BtnInfoSchema.TabIndex = 22;
+            this.BtnInfoSchema.Text = "INFORMATION SCHEMA";
+            this.BtnInfoSchema.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 612);
+            this.Controls.Add(this.BtnInfoSchema);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnAgregar);
@@ -246,5 +258,6 @@ namespace DataBase_Project
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnEliminar;
+        private System.Windows.Forms.Button BtnInfoSchema;
     }
 }

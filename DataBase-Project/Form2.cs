@@ -350,6 +350,7 @@ namespace DataBase_Project
             BtnModificar.Click += new EventHandler(BtnModificar_Click);
             BtnEliminar.Click += new EventHandler(BtnEliminar_Click);
             BtnAgregar.Click += new EventHandler(BtnAgregar_Click);
+            BtnInfoSchema.Click += new EventHandler(BtnInfoSchema_Click); // Añadir el evento para BtnInfoSchema
 
             // Configurar lblPagination inicialmente
             UpdatePaginationLabel();
@@ -386,9 +387,14 @@ namespace DataBase_Project
                 string primaryKeyColumn = LvBD.Columns[0].Text;
                 string primaryKeyValue = selectedItem.SubItems[0].Text;
 
-                string query = $"DELETE FROM {tableName} WHERE {primaryKeyColumn} = '{primaryKeyValue}'";
-                ExecuteNonQuery(query);
-                LoadTableData($"SELECT * FROM {tableName} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+                // Cuadro de confirmación
+                DialogResult result = MessageBox.Show($"¿Estás seguro de que deseas eliminar el registro con {primaryKeyColumn} = '{primaryKeyValue}'?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    string query = $"DELETE FROM {tableName} WHERE {primaryKeyColumn} = '{primaryKeyValue}'";
+                    ExecuteNonQuery(query);
+                    LoadTableData($"SELECT * FROM {tableName} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+                }
             }
         }
 
@@ -400,6 +406,71 @@ namespace DataBase_Project
             FormAgregar formAgregar = new FormAgregar(tableName, CmbDataBases.SelectedItem.ToString(), this.cadenaConexion);
             formAgregar.ShowDialog();
             LoadTableData($"SELECT * FROM {tableName} LIMIT {pageSize} OFFSET {(currentPage - 1) * pageSize}");
+        }
+
+        private void BtnInfoSchema_Click(object sender, EventArgs e)
+        {
+            if (CmbTablas.SelectedItem != null)
+            {
+                string tableName = CmbTablas.SelectedItem.ToString();
+                LoadTableSchema(tableName);
+            }
+        }
+
+        private void LoadTableSchema(string tableName)
+        {
+            try
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                string query = $@"
+                    SELECT 
+                        COLUMN_NAME, 
+                        DATA_TYPE, 
+                        CHARACTER_MAXIMUM_LENGTH, 
+                        IS_NULLABLE, 
+                        COLUMN_KEY, 
+                        COLUMN_COMMENT 
+                    FROM INFORMATION_SCHEMA.COLUMNS 
+                    WHERE TABLE_SCHEMA = '{CmbDataBases.SelectedItem.ToString()}' 
+                    AND TABLE_NAME = '{tableName}'";
+
+                MySqlCommand comando = new MySqlCommand(query, conexion);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(comando);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                LvBD.Clear();
+                LvBD.View = View.Details;
+
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    LvBD.Columns.Add(column.ColumnName);
+                }
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    ListViewItem item = new ListViewItem(row.ItemArray.Select(x => x.ToString()).ToArray());
+                    LvBD.Items.Add(item);
+                }
+
+                LvBD.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                LvBD.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
         }
     }
 }
